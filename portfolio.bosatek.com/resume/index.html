@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Aden Muhamedagic</title>
+  <meta name="description" content="Resume of Aden Muhamedagic — Cybersecurity & Web Development." />
+  <link rel="icon" href="../assets/logo-dark.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/logo-dark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cyan: #00B4D8; --cyan2: #0096B7;
+      --dark: #0D1B2A; --dark2: #162032;
+      --text: #111827; --muted: #6b7280;
+      --light: #f8fafc; --border: #e5e7eb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* NAV */
+    nav {
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%; height: 66px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { height: 32px; }
+    .nav-name { font-size: 1rem; font-weight: 800; color: var(--dark); }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--cyan); }
+
+    /* HERO BAR */
+    .resume-header {
+      background: var(--dark); padding: 48px 5% 36px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .resume-header h1 { font-size: 1.8rem; font-weight: 800; color: white; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .resume-header p { font-size: 0.95rem; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+    .resume-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--cyan); color: white;
+      padding: 11px 26px; border-radius: 50px;
+      font-weight: 700; font-size: 0.88rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--cyan2); transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: rgba(255,255,255,0.7);
+      padding: 11px 26px; border-radius: 50px;
+      font-weight: 600; font-size: 0.88rem; text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-1px); }
+
+    /* PDF VIEWER */
+    .viewer-wrap {
+      flex: 1; background: #3a3a3a;
+      display: flex; flex-direction: column;
+    }
+    .pdf-embed {
+      width: 100%; flex: 1; min-height: calc(100vh - 66px - 130px);
+      border: none; display: block;
+    }
+
+    /* FALLBACK (shown when no PDF) */
+    .no-pdf {
+      display: none; /* hidden by default; shown via JS if pdf fails */
+      flex: 1; align-items: center; justify-content: center;
+      flex-direction: column; gap: 20px; padding: 80px 5%;
+      text-align: center;
+    }
+    .no-pdf.visible { display: flex; }
+    .no-pdf-icon { font-size: 3.5rem; opacity: 0.3; }
+    .no-pdf h2 { font-size: 1.3rem; font-weight: 700; color: white; }
+    .no-pdf p { color: rgba(255,255,255,0.4); font-size: 0.9rem; max-width: 380px; line-height: 1.7; }
+
+    /* HOW TO UPDATE BOX */
+    .update-note {
+      background: rgba(0,180,216,0.07); border-top: 1px solid rgba(0,180,216,0.15);
+      padding: 20px 5%; text-align: center;
+    }
+    .update-note p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+    .update-note code { background: rgba(255,255,255,0.07); padding: 2px 7px; border-radius: 4px; font-family: monospace; color: rgba(255,255,255,0.55); }
+
+    @media (max-width: 600px) {
+      .resume-header h1 { font-size: 1.4rem; }
+      .resume-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../" class="nav-brand">
+    <img src="../assets/logo-horizontal.png" alt="Aden Muhamedagic" style="height:36px;width:auto;object-fit:contain;" />
+  </a>
+  <a href="../" class="nav-back">
+    ← Back to Portfolio
+  </a>
+</nav>
+
+<!-- HEADER -->
+<div class="resume-header">
+  <h1>Resume</h1>
+  <p>Aden Muhamedagic · Cybersecurity & Web Development</p>
+  <div class="resume-btns">
+    <a href="resume.pdf" download class="btn-primary" id="downloadBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </a>
+    <a href="https://www.linkedin.com/in/aden-muhamedagic/" target="_blank" rel="noopener" class="btn-ghost">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      View on LinkedIn
+    </a>
+  </div>
+</div>
+
+<!-- PDF VIEWER -->
+<div class="viewer-wrap" id="viewerWrap">
+  <iframe
+    class="pdf-embed"
+    src="resume.pdf"
+    id="pdfFrame"
+    title="Aden Muhamedagic Resume"
+  ></iframe>
+
+  <!-- Fallback shown if PDF isn't found -->
+  <div class="no-pdf" id="noPdf">
+    <div class="no-pdf-icon">📄</div>
+    <h2>Resume coming soon</h2>
+    <p>Drop <code>resume.pdf</code> into the <code>resume/</code> folder in your GitHub repo and it will appear here automatically.</p>
+    <a href="https://www.linkedin.com/in/aden-muhamedagic/" target="_blank" rel="noopener" class="btn-primary" style="margin-top:8px">
+      View on LinkedIn →
+    </a>
+  </div>
+</div>
+
+<!-- UPDATE NOTE -->
+<div class="update-note">
+  <p>To update your resume: replace <code>resume/resume.pdf</code> in your GitHub repo and push. The page will show the new version automatically.</p>
+</div>
+
+<script>
+  // If the iframe errors (no PDF file), show the fallback
+  const frame = document.getElementById('pdfFrame');
+  const noPdf = document.getElementById('noPdf');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  // Try to detect if PDF loaded; on GitHub Pages a missing file returns 404
+  frame.addEventListener('load', function() {
+    // Check if it's an error page by trying to detect content
+    // Safari/mobile fallback: also show LinkedIn button
+    try {
+      if (frame.contentDocument && frame.contentDocument.title === '404') {
+        showFallback();
+      }
+    } catch(e) { /* cross-origin; assume PDF loaded fine */ }
+  });
+
+  frame.addEventListener('error', showFallback);
+
+  function showFallback() {
+    frame.style.display = 'none';
+    noPdf.classList.add('visible');
+    downloadBtn.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
