@@ -4,11 +4,6 @@ Personal portfolio for **Aden Muhamedagic** — Cybersecurity Professional & Web
 
 Live at [portfolio.bosatek.com](https://portfolio.bosatek.com)
 
-## Assets needed
-
-Drop these into the `assets/` folder before pushing:
-- `headshot.jpg` — your professional photo (the one shared in conversation)
-
 ## Structure
 
 ```
